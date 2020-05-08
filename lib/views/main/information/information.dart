@@ -86,6 +86,8 @@ class _InformationPageState extends State<InformationPage> with AutomaticKeepAli
     super.build(context);
     return Scaffold(
       appBar: AppBar(
+        leading: null,
+        automaticallyImplyLeading: false,
         title: SizedBox(
           width: Adapt.screenW() * 0.95,
           height: Adapt.px(70),

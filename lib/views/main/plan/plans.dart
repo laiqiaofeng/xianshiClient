@@ -92,6 +92,8 @@ class PlansPageState extends State<PlansPage>  with SingleTickerProviderStateMix
                 pinned: true,
                 stretch: false,
                 elevation: 0,
+                leading: null,
+                automaticallyImplyLeading: false,
                 title: Text('计划', style: TextStyle(color: Colors.white),),
                 centerTitle: true,
                 iconTheme: IconThemeData(

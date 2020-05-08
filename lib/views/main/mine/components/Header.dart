@@ -102,7 +102,7 @@ class MineHeader extends SliverPersistentHeaderDelegate {
                             if(_isLogin) {
                               ApplicationRouter.router.navigateTo(context, Routes.modifyUserInfoPage);
                             }else {
-                              ApplicationRouter.router.navigateTo(context, Routes.loginPage, replace: true);
+                              ApplicationRouter.router.navigateTo(context, Routes.loginPage);
                             }
                           }, 
                           padding: EdgeInsets.all(0),

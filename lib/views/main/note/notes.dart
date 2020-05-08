@@ -69,6 +69,8 @@ class NotesPageState extends State<NotesPage>  with SingleTickerProviderStateMix
         return !_isLogin ? 
           Scaffold(
             appBar: AppBar(
+              leading: null,
+              automaticallyImplyLeading: false,
               title: Text('便签'),
               centerTitle: true,
             ),
@@ -117,6 +119,7 @@ class NotesPageState extends State<NotesPage>  with SingleTickerProviderStateMix
                       snap: true,
                       stretch: true,
                       pinned: true,
+                      automaticallyImplyLeading: false,
                       title: Text('便签', style: TextStyle(color: Colors.white),),
                       centerTitle: true,
                       iconTheme: IconThemeData(

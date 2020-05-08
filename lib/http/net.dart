@@ -94,7 +94,6 @@ class Net {
           // print('当前已接收$count');
           // print('总数$total');
         });
-      print('response$response');
       BaseData baseData = BaseData.fromJson(response.data);
       return baseData;
     } on DioError catch(err) {

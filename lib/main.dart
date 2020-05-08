@@ -44,13 +44,15 @@ void main () {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
   ]);
+  // 状态栏设置为亮色（白色）
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
   Global.init().then((e) => runApp(MyApp()));
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
 }
 
 final ThemeData myTheme = new ThemeData(
   accentColor: Colors.deepOrangeAccent,
-  accentTextTheme: TextTheme(body1: TextStyle(color: Colors.amber)),
+  accentTextTheme: TextTheme(bodyText1: TextStyle(color: Colors.amber)),
   fontFamily: 'text'
 );
 

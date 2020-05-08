@@ -52,6 +52,7 @@ class Http {
       'shown_offset': 0
     },
     extra: extra);
+    print(response.data);
     return response.data;
   }
 
@@ -109,6 +110,7 @@ class Http {
       "sex": sex,
       "phone": phone
     });
+    print('data${responseData.data}');
     try {
       UserInfo userInfo = UserInfo.fromJson(responseData.data);
       return userInfo;

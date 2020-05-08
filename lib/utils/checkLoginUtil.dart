@@ -7,7 +7,7 @@ class CheckLogin {
   static checkLogin ( BuildContext context, Function handler,) {
     bool isLogin = Global.profile.user != null;
     if (!isLogin) {
-      ApplicationRouter.router.navigateTo(context, Routes.loginPage, replace: true);
+      ApplicationRouter.router.navigateTo(context, Routes.loginPage);
       return;
     }
     handler();

@@ -1,5 +1,5 @@
 class Api {
-  static const String RELEASE_URL = 'http://39.97.255.65:3000/'; // 服务器地址
+  static const String RELEASE_URL = 'http://192.168.124.4:3000/'; // 服务器地址
 
   static const String TEST_URL = 'http://rap2.taobao.org:38080/app/mock/239177/'; // 测试地址
 
