@@ -229,7 +229,7 @@ Widget _createTypeRadio (Color color, String type, String name) {
                             initialDate: DateTime.now(), 
                             firstDate: DateTime(DateTime.now().year), 
                             lastDate: DateTime(DateTime.now().year + 1),
-                            locale: Locale.cachedLocale
+                            // locale: Locale()
                           );
                           setState(() {
                             _remindDate = DateUtil.formatDate(date, format: 'yyyy-MM-dd');
