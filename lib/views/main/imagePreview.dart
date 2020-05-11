@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:demo/common/Global.dart';
+import 'package:demo/model/user_info.dart';
 import 'package:demo/provider/user.dart';
 import 'package:demo/routes/applicationRouter.dart';
 import 'package:demo/utils/adaptUtil.dart';
@@ -27,24 +28,26 @@ class ImagePreview extends StatefulWidget {
 
 class _ImagePreviewState extends State<ImagePreview> {
 
-  String userId;
   String _image;
   @override
   void initState() { 
     super.initState();
     _image = widget.imgUrl;
+    print('imageUrl,$_image');
   }
 
-  Future _getImage() async {
+  Future _getImage(UserModel userModel) async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery).then((data) {
       return _getFile(data);
     });
-
-    Http.upload(image:image,tag: widget.tag, id: userId).then((data) {
+    print('userId, ${userModel.user.id}');
+    Http.upload(image:image,tag: widget.tag, id: userModel.user.id).then((data) {
       if (data is String || data == null) return;
-      print('这里的data是$data');
       Global.profile.user = data;
       Global.saveProfile();
+      userModel.user = data;
+      userModel.notifyListeners();
+
       Fluttertoast.showToast(
         msg: '修改成功',
         webPosition: 'top',
@@ -92,96 +95,97 @@ class _ImagePreviewState extends State<ImagePreview> {
   }
   @override
   Widget build(BuildContext context) {
-    userId = Provider.of<UserModel>(context).user.id;
-    return Scaffold(
-      body: Container(
-        color: Colors.black,
-        child:  Container(
-            width: Adapt.screenW(),
-            height: Adapt.screenH(),
-            color: Colors.transparent,
-            child: Stack(
-              children: <Widget>[
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  child: Hero(
-                    tag: widget.tag, 
-                    child:  Center(
-                      child: Container(
-                      width: Adapt.screenW(),
-                      height: Adapt.screenH(),
-                      child: _image.startsWith('http://')
-                      ? 
-                      ZoomableWidget(
-                        minScale: 0.3,
-                        maxScale: 2.0,
-                        // default factor is 1.0, use 0.0 to disable boundary
-                        panLimit: 0.8,
+    return Consumer<UserModel>(builder: (BuildContext context, userModel, Widget child) {
+      return Scaffold(
+        body: Container(
+          color: Colors.black,
+          child:  Container(
+              width: Adapt.screenW(),
+              height: Adapt.screenH(),
+              color: Colors.transparent,
+              child: Stack(
+                children: <Widget>[
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    child: Hero(
+                      tag: widget.tag, 
+                      child:  Center(
                         child: Container(
-                          child: TransitionToImage(
-                            image: AdvancedNetworkImage(_image, timeoutDuration: Duration(minutes: 1)),
-                            // This is the default placeholder widget at loading status,
-                            // you can write your own widget with CustomPainter.
-                            placeholder: CircularProgressIndicator(),
-                            // This is default duration
-                            duration: Duration(milliseconds: 300),
+                        width: Adapt.screenW(),
+                        height: Adapt.screenH(),
+                        child: _image.startsWith('http://')
+                        ? 
+                        ZoomableWidget(
+                          minScale: 0.3,
+                          maxScale: 2.0,
+                          // default factor is 1.0, use 0.0 to disable boundary
+                          panLimit: 0.8,
+                          child: Container(
+                            child: TransitionToImage(
+                              image: AdvancedNetworkImage(_image, timeoutDuration: Duration(minutes: 1)),
+                              // This is the default placeholder widget at loading status,
+                              // you can write your own widget with CustomPainter.
+                              placeholder: CircularProgressIndicator(),
+                              // This is default duration
+                              duration: Duration(milliseconds: 300),
+                            ),
                           ),
-                        ),
-                      )
-                      :
-                      ZoomableWidget(
-                        minScale: 0.3,
-                        maxScale: 2.0,
-                        // default factor is 1.0, use 0.0 to disable boundary
-                        panLimit: 0.8,
-                        child: Container(
-                          child: TransitionToImage(
-                            image: AssetImage(_image),
-                            // This is the default placeholder widget at loading status,
-                            // you can write your own widget with CustomPainter.
-                            placeholder: CircularProgressIndicator(),
-                            // This is default duration
-                            duration: Duration(milliseconds: 300),
+                        )
+                        :
+                        ZoomableWidget(
+                          minScale: 0.3,
+                          maxScale: 2.0,
+                          // default factor is 1.0, use 0.0 to disable boundary
+                          panLimit: 0.8,
+                          child: Container(
+                            child: TransitionToImage(
+                              image: AssetImage(_image),
+                              // This is the default placeholder widget at loading status,
+                              // you can write your own widget with CustomPainter.
+                              placeholder: CircularProgressIndicator(),
+                              // This is default duration
+                              duration: Duration(milliseconds: 300),
+                            ),
                           ),
-                        ),
+                        )
+                      ),
                       )
+                      ),
+                  ),
+                  widget.hasButton 
+                  ? 
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: Adapt.px(100),
+                    child: Center(
+                      child: FlatButton(
+                      onPressed: () {
+                        _getImage(userModel);
+                      }, 
+                      color: Colors.white,
+                      child: Text('重新选择')
                     ),
                     )
-                    ),
-                ),
-                widget.hasButton 
-                ? 
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: Adapt.px(100),
-                  child: Center(
-                    child: FlatButton(
-                    onPressed: () {
-                      _getImage();
-                    }, 
-                    color: Colors.white,
-                    child: Text('重新选择')
-                  ),
                   )
-                )
-                :
-                Container(),
-                Positioned(
-                  top: Adapt.px(80),
-                  left: Adapt.px(50),
-                  child: IconButton(
-                    icon: Icon(Icons.close, color: Colors.white,), 
-                    onPressed: () {
-                      ApplicationRouter.router.pop(context);
-                    }),
-                )
-              ],
-            ),
-          )
-      ),
-    );
+                  :
+                  Container(),
+                  Positioned(
+                    top: Adapt.px(80),
+                    left: Adapt.px(50),
+                    child: IconButton(
+                      icon: Icon(Icons.close, color: Colors.white,), 
+                      onPressed: () {
+                        ApplicationRouter.router.pop(context);
+                      }),
+                  )
+                ],
+              ),
+            )
+        ),
+      );
+    });
   }
 }
