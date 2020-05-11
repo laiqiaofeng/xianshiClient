@@ -286,7 +286,7 @@ Widget noteItemCard (Note note) {
             Container(
               margin: EdgeInsets.all(12),
               child: Center(
-                child: Text( note.content, style: TextStyle(fontSize: 14, color: Colors.white),),
+                child: Text( "${note.content}", style: TextStyle(fontSize: 14, color: Colors.white),),
               )
             )
             : 

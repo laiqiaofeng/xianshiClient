@@ -12,7 +12,7 @@ class CenterTitleAppBar {
           ApplicationRouter.router.pop(context);
         },
       ),
-      title: Text(title, style: TextStyle(color: Colors.white)),
+      title: Text("$title", style: TextStyle(color: Colors.white)),
       centerTitle: true,
     );
   }

@@ -101,7 +101,7 @@ class MyDialog {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(plan.name),
+            Text("${plan.name}"),
             Card(
               margin: EdgeInsets.only(top: 10),
               color: plan.planType == 'improtant' ? Colors.redAccent.withOpacity(0.2) : Colors.blueAccent.withOpacity(0.2) ,
@@ -219,12 +219,12 @@ class MyDialog {
                           })
                       ],
                     ),
-                    Text(text),
+                    Text("$text"),
                     Padding(padding: EdgeInsets.only(top: 16)),
                     FlatButton(
                       color: color ?? Global.themeColor,
                       onPressed: onPressed, 
-                      child: Text(buttonText ?? "确定", style: TextStyle(color: Colors.white),))
+                      child: Text("$buttonText" ?? "确定", style: TextStyle(color: Colors.white),))
                   ],
                 ),
               )

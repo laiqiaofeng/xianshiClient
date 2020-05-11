@@ -171,7 +171,7 @@ PopupMenuItem selectView(Color color, String text, String id) {
                     height: Adapt.px(30),
                   ),
                 ),
-                new Text(text, style: TextStyle(fontSize: 14),),
+                new Text("$text", style: TextStyle(fontSize: 14),),
             ],
         ),
         )

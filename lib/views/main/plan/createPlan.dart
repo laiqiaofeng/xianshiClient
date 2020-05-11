@@ -93,7 +93,7 @@ Widget _createTypeRadio (Color color, String type, String name) {
                 height: Adapt.px(40),
               ),
             ),
-            Text(name)
+            Text("$name")
           ],
         ),
       ),
@@ -352,7 +352,7 @@ Widget _createTypeRadio (Color color, String type, String name) {
   Widget createTargetCard (String target, int index) {
     return SizedBox(
       child: ListTile(
-        title: Text(target),
+        title: Text("$target"),
         trailing: IconButton(
           icon: Icon(Icons.close, size: 16), 
           onPressed: () {

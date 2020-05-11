@@ -104,9 +104,9 @@ class _PageState extends State<Page> {
           children: <Widget>[
             Padding(padding: EdgeInsets.all(10.0),),
             Image.asset(widget.pageViewModel.heroAssetPath, width: 100, height: 100,),
-            Text(widget.pageViewModel.title, style: TextStyle(fontSize: 24),),
+            Text("${widget.pageViewModel.title}", style: TextStyle(fontSize: 24),),
             Padding(padding: EdgeInsets.all(30),
-            child: Text(widget.pageViewModel.body,  style: TextStyle(fontSize: 14, letterSpacing: 2, ), softWrap: true,),  ),
+            child: Text("${widget.pageViewModel.body}",  style: TextStyle(fontSize: 14, letterSpacing: 2, ), softWrap: true,),  ),
             !widget.pageViewModel.hasBotton ? Text('') : Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[

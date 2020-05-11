@@ -52,7 +52,7 @@ class _PlanItemState extends State<PlanItem> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(_plan.name ?? '', style: TextStyle(fontSize: 18),),
+                        Text("${_plan.name}", style: TextStyle(fontSize: 18),),
                         Text(DateUtil.formatDate(DateTime.parse(_plan.createDateTime).toUtc(), format: 'yyyy年MM月dd日 HH:mm')   ?? '', style: TextStyle(fontSize: 14, color: Colors.black54),)
                       ],
                     ),

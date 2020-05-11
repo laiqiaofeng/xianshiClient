@@ -72,7 +72,7 @@ class _SwitchRadioState extends State<SwitchRadio> {
                   width: Adapt.px(100),
                   height: Adapt.px(60),
                   child: Center(
-                    child: Text(widget.leftTitle,  style: TextStyle(color: Colors.white),),
+                    child: Text("${widget.leftTitle}",  style: TextStyle(color: Colors.white),),
                   ),
                 ),
               ),
@@ -92,7 +92,7 @@ class _SwitchRadioState extends State<SwitchRadio> {
                   width: Adapt.px(100),
                   height: Adapt.px(60),
                   child: Center(
-                    child: Text(widget.rightTitle,  style: TextStyle(color: Colors.white),),
+                    child: Text("${widget.rightTitle}",  style: TextStyle(color: Colors.white),),
                   ),
                 ),
               ),

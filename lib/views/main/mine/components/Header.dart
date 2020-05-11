@@ -90,7 +90,7 @@ class MineHeader extends SliverPersistentHeaderDelegate {
                       ),
                       SizedBox(
                         width: Adapt.px(200),
-                        child: Text(_userName, style: TextStyle(color: Colors.white, fontSize: 14),overflow: TextOverflow.ellipsis,),
+                        child: Text("$_userName", style: TextStyle(color: Colors.white, fontSize: 14),overflow: TextOverflow.ellipsis,),
                       ),
                       SizedBox(
                         width: Adapt.px(120),
@@ -173,7 +173,7 @@ Widget createCard (CardOptions cardOptions) {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text("${cardOptions.count}", style: TextStyle(color: cardOptions.color, fontSize: 20, fontWeight: FontWeight.bold),),
-              Text(cardOptions.title, style: TextStyle(color: Color(0xff757575)),)
+              Text("${cardOptions.title}", style: TextStyle(color: Color(0xff757575)),)
             ],
           ),
         ),

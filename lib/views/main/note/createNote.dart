@@ -291,7 +291,7 @@ class _CreateNoteState extends State<CreateNote> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
-                                Text( _createTime, style: TextStyle(color: Colors.white),),
+                                Text( "$_createTime", style: TextStyle(color: Colors.white),),
                               ],
                             ),
                           ),

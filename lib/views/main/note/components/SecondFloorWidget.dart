@@ -208,7 +208,7 @@ class SecondFloorWidgetState extends State<SecondFloorWidget> {
                           padding: EdgeInsets.all(20),
                           alignment: Alignment.center,
                           width: double.infinity,
-                          child: Text(_signature, style: TextStyle(fontFamily: "雪云体", color: Colors.white, fontSize: 32),),
+                          child: Text("$_signature", style: TextStyle(fontFamily: "雪云体", color: Colors.white, fontSize: 32),),
                         ),
                       ),
                     )

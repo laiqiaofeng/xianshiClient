@@ -101,6 +101,6 @@ List<dynamic> _navList () {
   return itemList.map((item) => BottomNavigationBarItem(
       icon: Icon(IconData(item['icon']['default'] ,fontFamily: 'iconfont'), size: 18),
       activeIcon:  Icon(IconData(item['icon']['active'] ,fontFamily: 'iconfont'), size: 20),
-      title: Text(item['title'], style: TextStyle(fontSize: 10),)
+      title: Text("${item['title']}", style: TextStyle(fontSize: 10),)
   )).toList();
 }

@@ -43,14 +43,14 @@ class _ArticleItemState extends State<ArticleItem> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(this.article.title, maxLines: 1, overflow: TextOverflow.ellipsis,
+              Text("${this.article.title}", maxLines: 1, overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.w600
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: 10)),
-              Text(this.article.desc, maxLines: 3, overflow: TextOverflow.ellipsis,),
+              Text("${this.article.desc}", maxLines: 3, overflow: TextOverflow.ellipsis,),
               Padding(padding: EdgeInsets.only(top: 10)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,7 +69,7 @@ class _ArticleItemState extends State<ArticleItem> {
                         ),
                       ),
                       Padding(padding: EdgeInsets.only(left: 10)),
-                      Text(this.article.nickname, style: TextStyle(fontSize: 12),)
+                      Text("${this.article.nickname}", style: TextStyle(fontSize: 12),)
                     ]
                   ),
                   Row(

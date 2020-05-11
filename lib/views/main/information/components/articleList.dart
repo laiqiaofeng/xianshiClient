@@ -32,6 +32,7 @@ class _ArticleListState extends State<ArticleList> {
       if (widget.category != event.category) return;
       if (event.articleList.length > 0 && this.mounted) {
         setState(() {
+          print(event.articleList);
           this._articleList = event.articleList;
         });
       }

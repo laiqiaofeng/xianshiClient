@@ -98,7 +98,7 @@ class _SwiperComponentState extends State<SwiperComponent> with AutomaticKeepAli
                       color: Color.fromRGBO(0, 0, 0, 0.1),
                       child: Center(
                         child: Text(
-                          this._swiperList[index].title, 
+                          "${this._swiperList[index].title}", 
                           style: TextStyle(
                             fontSize: 12.0,
                             color: Colors.white,

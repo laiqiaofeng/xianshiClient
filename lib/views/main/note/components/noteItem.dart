@@ -43,6 +43,7 @@ class _NoteItemState extends State<NoteItem> {
         elevation: 10,
         child: InkWell(
           onTap: () {
+            print('widgetIndex${widget.index}');
             ApplicationEvent.event.fire(ShowNoteListDialog(widget.index));
           },
           child: Container(
@@ -124,7 +125,7 @@ class _NoteItemState extends State<NoteItem> {
                 ? 
                 Container(
                   margin: EdgeInsets.all(10),
-                  child: Text( _note.content, style: TextStyle(fontSize: 12, color: Colors.white),),
+                  child: Text( "${_note.content}", style: TextStyle(fontSize: 12, color: Colors.white),),
                 )
                 : 
                 Container(),

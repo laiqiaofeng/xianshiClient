@@ -192,12 +192,12 @@ class _MinePageState extends State<MinePage> {
                                   ListTile(
                                     contentPadding: EdgeInsets.all(0),
                                     leading: _itemList[index].icon,
-                                    title: Text(_itemList[index].title, style: TextStyle(color:  Colors.white, fontSize: 16),),
+                                    title: Text("${_itemList[index].title}", style: TextStyle(color:  Colors.white, fontSize: 16),),
                                     trailing: Icon(IconData(0xe65e, fontFamily: 'iconfont'), color: Colors.white, size: 16,),
                                   )
                                   :
                                   Center(
-                                    child: Text(_itemList[index].title, style: TextStyle(color: Colors.redAccent, fontSize: 20),)
+                                    child: Text("${_itemList[index].title}", style: TextStyle(color: Colors.redAccent, fontSize: 20),)
                                   )
                               )
                             )

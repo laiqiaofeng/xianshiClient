@@ -44,7 +44,7 @@ class _RegisterFormState extends State<RegisterForm> {
       child: RadioListTile(
         value: value, 
         groupValue: _userSex,
-        title: Text(title, style: TextStyle(color: Colors.white),),
+        title: Text("$title", style: TextStyle(color: Colors.white),),
         onChanged: (var value) {
           setState(() {
             _userSex = value;

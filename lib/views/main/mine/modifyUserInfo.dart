@@ -207,7 +207,7 @@ Widget createItem (ItemOptions options) {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(options.title, style: TextStyle(),),
+              Text("${options.title}", style: TextStyle(),),
               createFiled(options)
             ],
           )

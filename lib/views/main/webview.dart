@@ -31,7 +31,7 @@ class _WebViewPageState extends State<WebViewPage> {
                ApplicationRouter.router.pop(context);
              },
            ),
-           title: Text(this.title, style: TextStyle(color: Colors.black,fontSize: 14)),
+           title: Text("${this.title}", style: TextStyle(color: Colors.black,fontSize: 14)),
           //  backgroundColor: Colors.white,
          ),
        ),

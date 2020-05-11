@@ -27,7 +27,7 @@ class _EmptyPageState extends State<EmptyPage> {
               child: Image.asset('assets/images/empty.png'),
             ),
             Padding(padding: EdgeInsets.only(top: 15)),
-            Text(widget.hintText, style: TextStyle(color: Colors.grey),)
+            Text("$widget.hintText", style: TextStyle(color: Colors.grey),)
           ],
         ),
       ),
