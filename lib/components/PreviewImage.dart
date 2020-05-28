@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:demo/common/Global.dart';
 import 'package:demo/routes/applicationRouter.dart';
 import 'package:demo/routes/routers.dart';
+import 'package:demo/utils/adaptUtil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -51,7 +52,13 @@ class _PreviewImageState extends State<PreviewImage> with SingleTickerProviderSt
         CachedNetworkImage(
             imageUrl: _imgUrl,
             fit: BoxFit.cover,
-            placeholder: (context, url) => CircularProgressIndicator(),
+            placeholder: (context, url) => Center(
+              child: SizedBox(
+                width: Adapt.px(100),
+                height: Adapt.px(100),
+                child: CircularProgressIndicator()
+              ),
+            ),
             errorWidget: (context, url, error) => Image.asset(_defaultUrl, fit: widget.fit,),
         )
         :
