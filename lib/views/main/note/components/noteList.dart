@@ -9,6 +9,7 @@ import 'package:demo/event/event_model.dart';
 import 'package:demo/http/http.dart';
 import 'package:demo/model/note.dart';
 import 'package:demo/utils/adaptUtil.dart';
+import 'package:flutter_custom_dialog/flutter_custom_dialog.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:demo/views/main/note/components/noteItem.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class _NoteListState extends State<NoteList> {
   bool _listFinished = false;
   String userId;
   List<Note> _noteList ;
+  YYDialog _cardListDialog;
   Map<String, List<Note>> _noteGroupMap = {};
   var _dateList;
   ScrollController _scrollController;
@@ -48,7 +50,11 @@ class _NoteListState extends State<NoteList> {
     });
 
     ApplicationEvent.event.on<ShowNoteListDialog>().listen((event) {
-      MyDialog.noteCardDialog(context: context, noteList: _noteList, index: event.index);
+      if (_cardListDialog != null) {
+        _cardListDialog.show();
+      }else {
+        _cardListDialog =  MyDialog.noteCardDialog(context: context, noteList: _noteList, index: event.index);
+      }
     });
 
     ApplicationEvent.event.on<DeleteNote>().listen((event) {
